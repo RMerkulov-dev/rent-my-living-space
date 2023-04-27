@@ -1,5 +1,6 @@
 import { Nunito } from "next/font/google";
 import "./globals.css";
+import NavBar from "@/app/components/navbar/NavBar";
 
 export const metadata = {
   title: "RMLS",
@@ -16,7 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className}>{children}</body>
+      <body className={font.className}>
+        <NavBar />
+        {children}
+      </body>
     </html>
   );
 }
