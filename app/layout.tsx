@@ -4,6 +4,7 @@ import NavBar from "@/app/components/navbar/NavBar";
 
 import React from "react";
 import RegisterModal from "@/app/components/modals/RegisterModal";
+import LoginModal from "@/app/components/modals/LoginModal";
 import ToasterProvider from "@/app/providers/ToasterProvider";
 
 export const metadata = {
@@ -23,6 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <ToasterProvider />
+        <LoginModal />
         <RegisterModal />
         <NavBar />
         {children}
