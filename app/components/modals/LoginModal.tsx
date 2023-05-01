@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useCallback } from "react";
 import axios from "axios";
 import { signIn } from "next-auth/react";
 import { AiFillGithub } from "react-icons/ai";
@@ -53,6 +53,11 @@ const LoginModal = () => {
     });
   };
 
+  const toogle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
+
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading title="Welcome back" subtitle="Login to your account" />
@@ -101,9 +106,9 @@ const LoginModal = () => {
         "
       >
         <p>
-          Already have an account?
+          First time using RMLS?
           <span
-            onClick={registerModal.onClose}
+            onClick={toogle}
             className="
               text-neutral-800
               cursor-pointer
@@ -111,7 +116,7 @@ const LoginModal = () => {
             "
           >
             {" "}
-            Log in
+            Create an account
           </span>
         </p>
       </div>
