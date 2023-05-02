@@ -1,9 +1,12 @@
 import Container from "@/app/components/Container";
 import EmptyState from "@/app/components/EmptyState";
 import getListings from "@/app/actions/getListings";
+import ListingCard from "@/app/components/listings/ListingCard";
+import getCurrentUser from "@/app/actions/getCurrentUser";
 
 export default async function Home() {
   const listings = await getListings();
+  const currentUser = await getCurrentUser();
 
   if (listings.length === 0) {
     return <EmptyState showReset />;
@@ -23,11 +26,15 @@ export default async function Home() {
             gap-8
           "
       >
-        <div>
-          {listings.map((listing: any) => {
-            return <div>{listing.title}</div>;
-          })}
-        </div>
+        {listings.map((listing: any) => {
+          return (
+            <ListingCard
+              key={listing.id}
+              data={listing}
+              currentUser={currentUser}
+            />
+          );
+        })}
       </div>
     </Container>
   );
