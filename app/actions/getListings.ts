@@ -23,40 +23,34 @@ export default async function getListings(params: IListingsParams) {
       endDate,
       category,
     } = params;
-    let query = {};
+    let query: any = {};
 
     if (userId) {
-      //@ts-ignore
       query.userId = userId;
     }
     if (category) {
-      //@ts-ignore
       query.category = category;
     }
 
     if (roomCount) {
-      //@ts-ignore
       query.roomCount = {
         gte: +roomCount,
       };
     }
 
     if (guestCount) {
-      //@ts-ignore
       query.guestCount = {
         gte: +guestCount,
       };
     }
 
     if (bathroomCount) {
-      //@ts-ignore
       query.bathroomCount = {
         gte: +bathroomCount,
       };
     }
 
     if (locationValue) {
-      //@ts-ignore
       query.locationValue = locationValue;
     }
 
@@ -68,7 +62,6 @@ export default async function getListings(params: IListingsParams) {
     });
 
     if (startDate && endDate) {
-      //@ts-ignore
       query.NOT = {
         reservations: {
           some: {
