@@ -61,6 +61,9 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
                   style={{ objectFit: "cover" }}
                   src={value}
                   alt="House"
+                  sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                 />
               </div>
             )}

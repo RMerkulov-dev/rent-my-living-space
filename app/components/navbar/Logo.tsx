@@ -14,6 +14,7 @@ const Logo = () => {
       height="50"
       width="50"
       src="/images/main_logo.png"
+      priority
     />
   );
 };
