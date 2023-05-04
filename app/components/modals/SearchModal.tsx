@@ -5,9 +5,14 @@ import Modal from "@/app/components/modals/Modal";
 import useSearchModal from "@/app/hooks/useSearchModal";
 import { useRouter, useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
-import { CountrySelectValue } from "@/app/components/inputs/CountrySelect";
+import CountrySelect, {
+  CountrySelectValue,
+} from "@/app/components/inputs/CountrySelect";
 import qs from "query-string";
 import { formatISO } from "date-fns";
+import Heading from "@/app/components/Heading";
+import Counter from "@/app/components/inputs/Counter";
+import Calendar from "@/app/components/inputs/Calendar";
 
 enum STEPS {
   LOCATION = 0,
