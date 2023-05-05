@@ -17,7 +17,12 @@ const Logo = () => {
         src="/images/main_logo.png"
         priority
       />
-      <p className="font-bold text-rose-500 hidden  lg:block">HOUSING.COM</p>
+      <a
+        className="font-bold text-rose-500 hidden  lg:block cursor-pointer"
+        onClick={() => router.push("/")}
+      >
+        HOUSING.COM
+      </a>
     </div>
   );
 };
