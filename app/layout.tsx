@@ -12,7 +12,7 @@ import RentModal from "@/app/components/modals/RentModal";
 import SearchModal from "@/app/components/modals/SearchModal";
 
 export const metadata = {
-  title: "RMLS",
+  title: "HOUSING.COM",
   description: "Find the best place for you.",
 };
 
