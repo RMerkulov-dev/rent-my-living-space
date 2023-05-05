@@ -106,7 +106,7 @@ const LoginModal = () => {
         "
       >
         <p>
-          First time using RMLS?
+          First time using Housing.com?
           <span
             onClick={toogle}
             className="
