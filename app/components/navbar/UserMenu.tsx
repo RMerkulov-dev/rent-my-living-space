@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
+import React, {
+  useCallback,
+  useState,
+  useRef,
+  useEffect,
+  RefObject,
+} from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "@/app/components/Avatar";
 import MenuItem from "@/app/components/navbar/MenuItem";
@@ -22,6 +28,22 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const loginModal = useLoginModal();
   const rentModal = useRentModal();
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleDocumentClick = (event: MouseEvent) => {
+      if (
+        isOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleDocumentClick);
+    return () => document.removeEventListener("click", handleDocumentClick);
+  }, [isOpen, menuRef]);
 
   const onRent = useCallback(() => {
     if (!currentUser) {
@@ -74,6 +96,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             right-0
             top-12
             text-sm"
+          ref={menuRef as RefObject<HTMLDivElement>}
         >
           <div className="flex flex-col cursor-pointer">
             {currentUser ? (
